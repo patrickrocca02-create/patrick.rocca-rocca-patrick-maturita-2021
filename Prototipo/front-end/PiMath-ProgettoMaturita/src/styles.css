@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Crimson Text', serif;
+}
+
+.hidden{
+  display: none;
+}
+.visible{
+  display: unset;
+}
+.inputMat{
+  font-family: "Courier New" !important;
+}
+
+#input-container{
+  width: 84%;
+  margin-top: 10px;
+  margin-left: 8%;
+  font-size: x-large;
+}
+#output-container{
+  font-size: xx-large;
+  text-align: center;
+  width: 80%;
+  margin-left: 8%;
+  background-color: #9dc9e3;
+  border: #3dade9 3px solid;
+  border-radius: 20px;
+  padding: 20px;
+  padding-top: 60px;
+  padding-bottom: 65px;
+}
+
+#input-label{
+  margin-bottom: 100px;
+  font-size: 80px;
+}
+#output-label{
+  font-size: 80px;
+}
+
+#math-error{
+  font-size: xx-large;
+  text-align: center;
+  width: 80%;
+  margin-left: 8%;
+  margin-right: 10%;
+  background-color: #e98f8f;
+  border: #f81111 3px solid;
+  color: #7e0303;
+  border-radius: 20px;
+  padding: 20px;
+  padding-top: 60px;
+  padding-bottom: 65px;
+}
+
+

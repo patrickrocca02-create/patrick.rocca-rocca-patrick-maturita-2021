@@ -1,0 +1,7 @@
+{
+  "/API/*": {
+    "target": "https://p4plvbcqfa.execute-api.eu-south-1.amazonaws.com",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

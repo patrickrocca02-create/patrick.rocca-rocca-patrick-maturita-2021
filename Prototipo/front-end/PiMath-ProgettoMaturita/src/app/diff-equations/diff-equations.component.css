@@ -1,0 +1,12 @@
+#eq-form{
+  border-radius: 0;
+  width: 83%;
+}
+.input-desc-label{
+  margin-bottom: 10px;
+}
+.math-calc-btn{
+  width: 14%;
+  margin-left: 20px;
+  height: 40px;
+}

@@ -1,0 +1,16 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>
+    <button [routerLink]="'/derivative'" class="math-section-btn" mat-raised-button color="primary">
+      <div style="font-size: 150px;">$\frac{{"{"}}d}{{"{"}}d x} f{{"{"}}\left(x \right)}$</div>
+      <div class="section-text"><strong>Derivate</strong></div>
+      <div>Calcolo della derivata di ordine n di una data funzione</div>
+    </button>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <button [routerLink]="'/diff-equations'" class="math-section-btn" mat-raised-button color="primary">
+      <div style="margin-top: 40px; font-size: 90px;">$a \frac{{"{"}}d^{{"{"}}2}}{{"{"}}d x^{{"{"}}2}} f{{"{"}}\left(x \right)} + b \frac{{"{"}}d}{{"{"}}d x} f{{"{"}}\left(x \right)}$</div>
+      <div style="margin-top: 40px" class="section-text"><strong>Equazioni Differenziali</strong></div>
+      <div>Soluzione di una data equazione differenziale</div>
+    </button>
+  </mat-grid-tile>
+</mat-grid-list>

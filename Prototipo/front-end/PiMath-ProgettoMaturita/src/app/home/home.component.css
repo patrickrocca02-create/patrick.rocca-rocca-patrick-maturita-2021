@@ -1,0 +1,23 @@
+.math-section-btn{
+  background-color: #ffe0b3;
+  width: 88%;
+  height: 300px;
+  border: #ff7a00 2px solid;
+  transition: width 300ms, height 300ms;
+}
+.math-section-btn:hover{
+  background-color: #ff9439;
+  width: 87%;
+  height: 310px;
+  border: #ff7a00 2px solid;
+}
+
+
+.section-icon{
+  font-size: 150px;
+}
+.section-text{
+  font-size: 30px;
+}
+
+

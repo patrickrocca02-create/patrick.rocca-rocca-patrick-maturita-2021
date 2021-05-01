@@ -1,0 +1,41 @@
+<div id="input-container">
+  <mat-form-field id="fun-form">
+    <mat-label>Funzione</mat-label>
+    <input class="inputMat" matInput type="text" [(ngModel)]="funValue">
+    <button mat-button *ngIf="funValue" matSuffix mat-icon-button aria-label="Clear" (click)="funValue=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field id="var-form">
+    <mat-label>Variabile</mat-label>
+    <input class="inputMat" matInput type="text" [(ngModel)]="varValue">
+    <button mat-button *ngIf="varValue" matSuffix mat-icon-button aria-label="Clear" (click)="varValue=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field id="n-form">
+    <mat-label>Ordine</mat-label>
+    <input class="inputMat" matInput type="text" [(ngModel)]="nValue">
+    <button mat-button *ngIf="nValue" matSuffix mat-icon-button aria-label="Clear" (click)="nValue=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <div id="btn-container">
+    <button (click)="permormRequest()" class="math-calc-btn" mat-raised-button color="primary">Calcola</button>
+  </div>
+</div>
+
+<div id="output-container" class="hidden">
+  <div>Input:</div>
+  <div id="input-label">
+
+  </div>
+  <div>Risultato:</div>
+  <div id="output-label">
+
+  </div>
+</div>
+<div id="math-error" *ngIf="error">
+  {{ errorMessage }}
+</div>
+
