@@ -1,0 +1,14 @@
+<mat-grid-list cols="1" rowHeight="110px" style="margin-top: 30px;">
+  <mat-grid-tile *ngFor="let topic of topics" (click)="openTopic(topic.id)">
+    <mat-card>
+      <mat-card-title>
+        <strong>
+          {{ topic.name }}
+        </strong>
+      </mat-card-title>
+      <mat-card-content>
+        {{ topic.description }}
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

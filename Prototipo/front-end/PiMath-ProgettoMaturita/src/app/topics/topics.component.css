@@ -1,0 +1,20 @@
+mat-card{
+  width: 92%;
+  height: 60px;
+  background-color: #ffe0b3;
+  border: #ff9700 2px solid;
+  transition: width 300ms, height 300ms;
+  cursor: pointer;
+}
+mat-card:hover{
+  background-color: #ff9700;
+  width: 93%;
+  height: 70px;
+}
+mat-card-title{
+  font-size: xx-large;
+}
+mat-card-content{
+  margin-top: 15px;
+  font-size: 19px;
+}

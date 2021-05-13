@@ -1,0 +1,27 @@
+#input-container{
+  display: inline-flex;
+}
+#eq-form{
+  width: 71.78%;
+  margin-right: 30px;
+}
+#un-form{
+  width: 10%;
+  margin-right: 30px;
+}
+#n-form{
+  width: 8%;
+  margin-right: 30px;
+}
+.label-input{
+  margin-bottom: 10px;
+}
+.math-calc-btn{
+  width: 100%;
+  height: 40px;
+}
+#btn-container{
+  padding-top: 26px;
+  margin: 0;
+  width: 12%;
+}

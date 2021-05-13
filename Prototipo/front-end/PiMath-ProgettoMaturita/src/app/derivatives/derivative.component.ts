@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {HttpClient} from '@angular/common/http';
-import {Service} from '../service/service';
-import {delay} from 'rxjs/operators';
+import {LambdaService} from '../service/lambdaService';
+import {AuthService} from '../service/AuthService';
 
 @Component({
   selector: 'app-derivative',
@@ -17,21 +16,29 @@ export class DerivativeComponent implements OnInit {
   varValue = '';
   nValue = '';
 
+  loading = false;
+
   errorMessage = '';
   error = false;
 
-  constructor(private service: Service) { }
+  constructor(private service: LambdaService, private router: Router) { }
 
   ngOnInit(): void {
+    if (!AuthService.isServiceActive('Derivate')){
+      this.router.navigate(['/login']);
+    }
   }
 
   permormRequest(): void{
+    this.loading = true;
     this.error = false;
-    const fun = this.service.transformEquation(this.funValue);
+    const fun = encodeURIComponent(this.funValue);
     const queryString = 'fun=' + fun + '&var=' + this.varValue + '&n=' + this.nValue + '&latex=True';
+    document.querySelector('#output-container').classList.add('hidden');
     // @ts-ignore
     this.service.get(this.resource, queryString).subscribe((response: any) => {
       document.querySelector('#output-container').classList.remove('hidden');
+      this.loading = false;
       document.querySelector('#input-label').innerHTML = '$f{\\left(x \\right)}=' + response.body.input + '$';
       // tslint:disable-next-line:triple-equals
       if (this.nValue == '1'){
@@ -43,7 +50,7 @@ export class DerivativeComponent implements OnInit {
       this.service.updateMathExpressions();
     },
     (error: any) => {
-      document.querySelector('#output-container').classList.add('hidden');
+      this.loading = false;
       this.handleError(error.error.problem_id);
     });
   }

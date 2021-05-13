@@ -1,0 +1,56 @@
+mat-grid-list{
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: 40px;
+}
+mat-grid-tile{
+  margin: 0;
+}
+mat-card-title{
+  height: 42px;
+}
+mat-card-content{
+  height: 216px;
+}
+mat-card{
+  width: 90%;
+  height: 300px;
+  background-color: #d8e9ff;
+  border: #9ac6ff 2px solid;
+  transition: height 300ms, width 300ms;
+}
+mat-card:hover{
+  width: 93%;
+  height: 308px;
+  background-color: #9ac6ff;
+  border: #9ac6ff 2px solid;
+}
+
+.difficulty{
+
+}
+.time{
+  text-align: right;
+  display: flex;
+  margin-left: auto;
+  margin-right: 12px;
+}
+.clock{
+  margin-bottom: 12px;
+  margin-left: 5px;
+}
+
+.EASY{
+  color: #32de08;
+}
+.MEDIUM{
+  color: orange;
+}
+.DIFFICULT{
+  color: red;
+}
+
+.mat-card-footer {
+  margin-left: 1px;
+  font-size: 20px;
+}

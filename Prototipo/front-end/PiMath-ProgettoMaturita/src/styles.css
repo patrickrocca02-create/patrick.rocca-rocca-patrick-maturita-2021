@@ -27,12 +27,17 @@ body {
   text-align: center;
   width: 80%;
   margin-left: 8%;
-  background-color: #9dc9e3;
-  border: #3dade9 3px solid;
+  background-color: #d8e9ff;
+  border: #51baea 2px solid;
   border-radius: 20px;
   padding: 20px;
   padding-top: 60px;
   padding-bottom: 65px;
+}
+
+.loading-container{
+  margin-top: 50px;
+  margin-left: 45%;
 }
 
 #input-label{
@@ -44,18 +49,23 @@ body {
 }
 
 #math-error{
-  font-size: xx-large;
+  font-size: 20px;
   text-align: center;
   width: 80%;
   margin-left: 8%;
   margin-right: 10%;
-  background-color: #e98f8f;
-  border: #f81111 3px solid;
-  color: #7e0303;
+  background-color: #fdb2b2;
+  border: #b50000 2px solid;
+  color: #860909;
   border-radius: 20px;
   padding: 20px;
   padding-top: 60px;
   padding-bottom: 65px;
+}
+
+
+.mat-tooltip{
+  font-size: 16px !important;
 }
 
 

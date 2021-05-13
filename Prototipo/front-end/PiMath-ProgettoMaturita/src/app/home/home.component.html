@@ -1,16 +1,34 @@
-<mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile>
-    <button [routerLink]="'/derivative'" class="math-section-btn" mat-raised-button color="primary">
-      <div style="font-size: 150px;">$\frac{{"{"}}d}{{"{"}}d x} f{{"{"}}\left(x \right)}$</div>
-      <div class="section-text"><strong>Derivate</strong></div>
-      <div>Calcolo della derivata di ordine n di una data funzione</div>
+<mat-grid-list cols="2" rowHeight="350px" style="margin-top: 30px">
+  <mat-grid-tile *ngIf="isServiceActive('Equazioni')">
+    <button [routerLink]="'/equations'" class="math-section-btn math-section-btn-left" mat-raised-button color="primary">
+      <div style="margin-top: 25px; font-size: 100px;">$3x+\frac{{"{"}}1}{{"{"}}x}=0$</div>
+      <div style="margin-top: 38px" class="section-text"><strong>Equazioni</strong></div>
+      <div>{{ getServiceDescription('Equazioni') }}</div>
     </button>
   </mat-grid-tile>
-  <mat-grid-tile>
-    <button [routerLink]="'/diff-equations'" class="math-section-btn" mat-raised-button color="primary">
-      <div style="margin-top: 40px; font-size: 90px;">$a \frac{{"{"}}d^{{"{"}}2}}{{"{"}}d x^{{"{"}}2}} f{{"{"}}\left(x \right)} + b \frac{{"{"}}d}{{"{"}}d x} f{{"{"}}\left(x \right)}$</div>
+  <mat-grid-tile *ngIf="isServiceActive('Disequazioni')">
+    <button [routerLink]="'/inequalities'" class="math-section-btn math-section-btn-right" mat-raised-button color="primary">
+      <div style="margin-top: 40px; font-size:100px;">$ln(x)+3\leq2$</div>
+      <div style="margin-top: 28px" class="section-text"><strong>Disequazioni</strong></div>
+      <div>{{ getServiceDescription('Disequazioni') }}</div>
+    </button>
+  </mat-grid-tile>
+  <mat-grid-tile *ngIf="isServiceActive('Derivate')">
+    <button [routerLink]="'/derivatives'" class="math-section-btn math-section-btn-left" mat-raised-button color="primary">
+      <div style="font-size: 130px;">$\frac{{"{"}}d}{{"{"}}d x} f{{"{"}}\left(x \right)}$</div>
+      <div style="margin-top: 22px" class="section-text"><strong>Derivate</strong></div>
+      <div>{{ getServiceDescription('Derivate') }}</div>
+    </button>
+  </mat-grid-tile>
+  <mat-grid-tile *ngIf="isServiceActive('Equazioni Differenziali')">
+    <button [routerLink]="'/diff-equations'" class="math-section-btn math-section-btn-right" mat-raised-button color="primary">
+      <div style="margin-top: 40px; font-size: 90px;">$4 \frac{{"{"}}d^{{"{"}}2}}{{"{"}}d x^{{"{"}}2}} f{{"{"}}\left(x \right)} + \frac{{"{"}}1}{{"{"}}2} \frac{{"{"}}d}{{"{"}}d x} f{{"{"}}\left(x \right)}$</div>
       <div style="margin-top: 40px" class="section-text"><strong>Equazioni Differenziali</strong></div>
-      <div>Soluzione di una data equazione differenziale</div>
+      <div>{{ getServiceDescription('Equazioni Differenziali') }}</div>
     </button>
   </mat-grid-tile>
 </mat-grid-list>
+
+<button id="theory-btn" [routerLink]="'/topics'" class="math-section-btn math-section-btn-right" mat-raised-button color="primary">
+  <div style="font-size: xxx-large">Teoria</div>
+</button>

@@ -1,0 +1,40 @@
+#register-card{
+  margin-top: 60px;
+  text-align: center;
+  margin-left: 35%;
+  width: 30%;
+  height: 540px;
+}
+#register-btn{
+  border: #ff9700 solid 1px;
+  background-color: #ffe0b3;
+  font-size: 30px;
+  width: 40%;
+  height: 50px;
+  transition: background-color 300ms;
+}
+#register-btn:hover{
+  background-color: #ff9700;
+}
+
+#login-error{
+  font-size: 20px;
+  text-align: center;
+  background-color: #fdb2b2;
+  border: #b50000 2px solid;
+  color: #860909;
+  border-radius: 8px;
+  margin-top: 50px;
+  height: 40px;
+  padding-top: 20px;
+}
+#plan-select{
+  font-size: 20px;
+}
+
+p{
+  font-size: 20px;
+}
+mat-form-field.even{
+  margin-right: 20px;
+}

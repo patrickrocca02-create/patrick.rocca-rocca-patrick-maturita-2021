@@ -1,5 +1,7 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {Service} from '../service/service';
+import {LambdaService} from '../service/lambdaService';
+import {AuthService} from '../service/AuthService';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-diff-equations',
@@ -12,10 +14,16 @@ export class DiffEquationsComponent implements OnInit, AfterViewInit {
 
   eqValue = '';
 
+  loading = false;
+
   errorMessage = '';
   error = false;
 
-  constructor(private service: Service) { }
+  constructor(private service: LambdaService, private router: Router) {
+    if (!AuthService.isServiceActive('Equazioni Differenziali')){
+      this.router.navigate(['/login']);
+    }
+  }
 
   ngOnInit(): void {}
   ngAfterViewInit(): void{
@@ -23,18 +31,21 @@ export class DiffEquationsComponent implements OnInit, AfterViewInit {
   }
 
   permormRequest(): void{
+    document.querySelector('#output-container').classList.add('hidden');
+    this.loading = true;
     this.error = false;
-    const eq = this.service.transformEquation(this.eqValue);
+    const eq = encodeURIComponent(this.eqValue);
     const queryString = 'eq=' + eq + '&latex=True';
     // @ts-ignore
     this.service.get(this.resource, queryString).subscribe((response: any) => {
-        document.querySelector('#output-container').classList.remove('hidden');
-        document.querySelector('#input-label').innerHTML = '$' + response.body.input + '$';
-        document.querySelector('#output-label').innerHTML = '$' + response.body.solution + '$';
-        this.service.updateMathExpressions();
+      this.loading = false;
+      document.querySelector('#output-container').classList.remove('hidden');
+      document.querySelector('#input-label').innerHTML = '$' + response.body.input + '$';
+      document.querySelector('#output-label').innerHTML = '$' + response.body.solution + '$';
+      this.service.updateMathExpressions();
       },
       (error: any) => {
-        document.querySelector('#output-container').classList.add('hidden');
+        this.loading = false;
         this.handleError(error.error.problem_id);
       });
   }

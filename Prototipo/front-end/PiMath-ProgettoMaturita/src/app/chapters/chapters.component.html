@@ -1,0 +1,25 @@
+<mat-grid-list cols="3" rowHeight="350px">
+  <mat-grid-tile *ngFor="let chapter of chapters" (click)="openChapter(chapter.chapterID)">
+    <mat-card>
+      <mat-card-title>
+        <strong>
+          {{ chapter.name }}
+        </strong>
+      </mat-card-title>
+      <mat-card-content>
+        <p>{{ chapter.description }}</p>
+      </mat-card-content>
+      <mat-card-footer style="display: flex">
+        <div class="difficulty">
+          Difficoltà: <span class="{{ chapter.difficulty }}">{{ chapter.difficulty }}</span>
+        </div>
+        <div class="time">
+          <div class="minutes">{{ chapter.readingTime }} min</div>
+          <mat-icon class="clock">
+            watch_later
+          </mat-icon>
+        </div>
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

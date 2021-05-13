@@ -8,7 +8,9 @@
   </mat-form-field>
   <button (click)="permormRequest()" class="math-calc-btn" mat-raised-button color="primary">Calcola</button>
 </div>
-
+<div class="loading-container" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
 <div id="output-container" class="hidden">
   <div>Input:</div>
   <div id="input-label">

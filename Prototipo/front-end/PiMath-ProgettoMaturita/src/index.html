@@ -13,11 +13,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
+      jax: ["input/TeX","output/CommonHTML"],
       tex2jax: {
           inlineMath: [['$','$'], ['\\(','\\)']],
           processEscapes: true
-          }
+      },
+      CommonHTML: {
+        scale: 300
+      }
     });
+  </script>
+  <script type="module">
+    import { LaTeXJSComponent } from "https://cdn.jsdelivr.net/npm/latex.js/dist/latex.mjs"
+    customElements.define("latex-js", LaTeXJSComponent)
   </script>
   <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>

@@ -1,23 +1,35 @@
 .math-section-btn{
   background-color: #ffe0b3;
-  width: 88%;
-  height: 300px;
-  border: #ff7a00 2px solid;
+  width: 83%;
+  height: 340px;
+  border: #ff9700 2px solid;
   transition: width 300ms, height 300ms;
 }
-.math-section-btn:hover{
-  background-color: #ff9439;
-  width: 87%;
-  height: 310px;
-  border: #ff7a00 2px solid;
+.math-section-btn-left{
+  margin-left: 15%;
 }
-
+.math-section-btn-right{
+  margin-right: 15%;
+}
+.math-section-btn:hover{
+  background-color: #ff9700;
+  width: 82%;
+  height: 330px;
+  border: #ff9700 2px solid;
+}
 
 .section-icon{
   font-size: 150px;
 }
 .section-text{
-  font-size: 30px;
+  font-size: 35px;
+}
+
+#theory-btn{
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-top: 20px;
+  width: 84%
 }
 
 
