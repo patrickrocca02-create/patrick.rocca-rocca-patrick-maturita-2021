@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {LambdaService} from '../service/lambdaService';
+import {LambdaService} from '../service/LambdaService';
 import {DBService} from '../service/DBService';
 import {HttpClient} from '@angular/common/http';
 import {AuthService} from '../service/AuthService';
 import {Router} from '@angular/router';
+import {RouterService} from '../service/RouterService';
 
 @Component({
   selector: 'app-login',
@@ -20,9 +21,10 @@ export class LoginComponent implements OnInit {
 
   error = false;
 
-  constructor(private http: HttpClient, private authService: AuthService, private router: Router, private dbService: DBService) { }
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    RouterService.goBack = false;
   }
 
   submit(): void {

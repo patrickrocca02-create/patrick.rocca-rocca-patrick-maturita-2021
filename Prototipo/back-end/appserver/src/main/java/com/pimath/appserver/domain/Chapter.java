@@ -18,28 +18,34 @@ import java.io.Serializable;
 public class Chapter implements Serializable {
 
     @Id
-    @Column(name="chapter_id")
-    Long chapterID;
+    @Column(name="chapter_id", columnDefinition = "INT")
+    Integer chapterID;
 
     @JsonIgnore
     @ManyToOne(optional = false)
     @Id
-    @JoinColumn(name="topic_id", referencedColumnName = "topic_id")
+    @JoinColumn(name="topic_id", referencedColumnName = "topic_id", columnDefinition = "INT")
     Topic topic;
 
-    @Column(name="name", length = 50)
+    @Column(name="name", length = 50, nullable = false)
     String name;
 
-    @Column(name="description", length = 100)
+    @Column(name="description", length = 300, nullable = false)
     String description;
 
-    @Column(name = "reading_time")
+    @Column(name = "reading_time", nullable = false)
     int readingTime;
 
-    @Column(name="difficulty", length = 50)
+    @Column(name="difficulty", length = 50, nullable = false)
     String difficulty;
 
     @JsonIgnore
-    @Column(name = "text",columnDefinition="TEXT")
+    @Column(name = "text",columnDefinition="TEXT", nullable = false)
     String text;
+
+    @JsonIgnore
+    @ManyToOne(optional = false)
+    @Id
+    @JoinColumn(name="author_id", referencedColumnName = "author_id", columnDefinition = "INT")
+    Author author;
 }

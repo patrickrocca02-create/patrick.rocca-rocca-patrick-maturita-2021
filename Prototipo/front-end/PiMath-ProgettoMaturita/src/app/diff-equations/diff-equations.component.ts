@@ -1,7 +1,8 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {LambdaService} from '../service/lambdaService';
+import {LambdaService} from '../service/LambdaService';
 import {AuthService} from '../service/AuthService';
 import {Router} from '@angular/router';
+import {RouterService} from '../service/RouterService';
 
 @Component({
   selector: 'app-diff-equations',
@@ -16,7 +17,7 @@ export class DiffEquationsComponent implements OnInit, AfterViewInit {
 
   loading = false;
 
-  errorMessage = '';
+  errorMessage = 'Error';
   error = false;
 
   constructor(private service: LambdaService, private router: Router) {
@@ -25,7 +26,9 @@ export class DiffEquationsComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    RouterService.goBack = true;
+  }
   ngAfterViewInit(): void{
     this.service.updateMathExpressions();
   }

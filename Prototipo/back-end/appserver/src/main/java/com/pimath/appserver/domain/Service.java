@@ -12,12 +12,13 @@ import javax.persistence.*;
 public class Service {
 
     @Id
-    @Column(name="service_id")
-    Long serviceID;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="service_id",columnDefinition = "SMALLINT")
+    Integer serviceID;
 
-    @Column(name="name",length = 25)
+    @Column(name="name",length = 25, nullable = false)
     String serviceName;
 
-    @Column(name="description", length = 100)
+    @Column(name="description", length = 100, nullable = false)
     String description;
 }

@@ -15,8 +15,8 @@ import lombok.ToString;
 @Table(name="users")
 public class User{
     @Id
-    @Column(name="user_name",length=20) 
-    String userName;
+    @Column(name="username",length=20)
+    String username;
 
     @Column(name="name",length=20,nullable=false)
     String name;
@@ -30,13 +30,13 @@ public class User{
     @Column(name="password",length = 60,nullable=false)
     String password;
 
-    @Column(name="creation_date",length=20,nullable = false)
+    @Column(name="creation_date",nullable = false)
     LocalDateTime creationDate;
 
     @Column(name="active",nullable = false)
     boolean active;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name="plan_id",referencedColumnName = "plan_id")
+    @JoinColumn(name="plan_id",referencedColumnName = "plan_id", columnDefinition = "SMALLINT")
     Plan plan;
 }

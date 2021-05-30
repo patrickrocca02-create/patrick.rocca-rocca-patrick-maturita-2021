@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {DBService} from '../service/DBService';
 import {TopicsComponent} from '../topics/topics.component';
 import {ChaptersComponent} from '../chapters/chapters.component';
+import {RouterService} from '../service/RouterService';
 
 @Component({
   selector: 'app-chapter',
@@ -15,6 +16,7 @@ export class ChapterComponent implements OnInit {
   constructor(private router: Router, private dbService: DBService) {  }
 
   ngOnInit(): void {
+    RouterService.goBack = true;
     if (AuthService.loggedIn) {
       this.loadChapter();
     }else {

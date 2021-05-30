@@ -11,7 +11,7 @@ public class ChapterService {
     @Autowired
     ChapterService chapterService;
 
-    public List<Chapter> getChapters(Long chapterID){
+    public List<Chapter> getChapters(Integer chapterID){
         return chapterService.getChapters(chapterID);
     }
 }

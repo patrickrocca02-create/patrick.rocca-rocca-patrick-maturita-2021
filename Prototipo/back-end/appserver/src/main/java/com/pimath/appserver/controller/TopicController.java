@@ -24,18 +24,18 @@ public class TopicController {
 
     @GetMapping("/available")
     public ResponseEntity<?> getAvailable(){
-        List<Topic> availableServices = topicService.getAvailable(Long.valueOf(SecurityContextHolder.getContext().getAuthentication().getAuthorities().toArray()[0].toString()));
+        List<Topic> availableServices = topicService.getAvailable(Integer.valueOf(SecurityContextHolder.getContext().getAuthentication().getAuthorities().toArray()[0].toString()));
         return new ResponseEntity<List<Topic>>(availableServices, HttpStatus.OK);
     }
 
     @GetMapping("/chapters/{topicID}")
-    public ResponseEntity<?> getAvailable(@PathVariable Long topicID){
+    public ResponseEntity<?> getAvailable(@PathVariable Integer topicID){
         Set<Chapter> chapters = topicService.getChapters(topicID);
         return new ResponseEntity<Set<Chapter>>(chapters, HttpStatus.OK);
     }
 
     @GetMapping("/chapter-text/{topicID}/{chapterID}")
-    public ResponseEntity<?> getChapterText(@PathVariable Long topicID, @PathVariable Long chapterID){
+    public ResponseEntity<?> getChapterText(@PathVariable Integer topicID, @PathVariable Integer chapterID){
         String text = topicService.getChapterText(topicID, chapterID);
         return new ResponseEntity<String>(text, HttpStatus.OK);
     }

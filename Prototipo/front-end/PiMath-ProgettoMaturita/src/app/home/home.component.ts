@@ -1,9 +1,9 @@
-import {AfterViewInit, Component, DoCheck, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {LambdaService} from '../service/lambdaService';
+import {Component, DoCheck, OnInit} from '@angular/core';
+import {LambdaService} from '../service/LambdaService';
 import {DBService} from '../service/DBService';
-import {Service} from '../domain/Service';
 import {Router} from '@angular/router';
 import {AuthService} from '../service/AuthService';
+import {RouterService} from '../service/RouterService';
 
 @Component({
   selector: 'app-home',
@@ -13,14 +13,16 @@ import {AuthService} from '../service/AuthService';
 export class HomeComponent implements OnInit, DoCheck {
 
   services = [];
+  firstName = 'Utente';
 
   constructor(private lambdaService: LambdaService, private dbService: DBService, private router: Router) {
   }
 
   ngOnInit(): void{
+    RouterService.goBack = false;
     if (AuthService.loggedIn) {
       this.activateServices();
-      // this.lambdaService.updateMathExpressions();
+      this.dbService.getUserName(AuthService.user.username).subscribe( (result) => this.firstName = result );
     }else {
       this.router.navigate(['/login']);
     }

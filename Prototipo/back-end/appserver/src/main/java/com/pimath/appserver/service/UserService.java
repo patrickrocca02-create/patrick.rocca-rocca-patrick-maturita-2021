@@ -41,13 +41,17 @@ public class UserService {
         }
         user.setCreationDate(LocalDateTime.now());
         user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
-        System.out.println(user);
         user.setPlan(planRepository.getOne(user.getPlan().getPlanID()));
         userRepository.save(user);
         return true;
     }
 
-    public int getNUsers(){
-        return userRepository.findAll().size();
+    public String getFirstName(String username){
+        Optional<User> optUser = userRepository.findById(username);
+        if(optUser.isPresent()){
+            return optUser.get().getName();
+        }else{
+            return "unknown";
+        }
     }
 }

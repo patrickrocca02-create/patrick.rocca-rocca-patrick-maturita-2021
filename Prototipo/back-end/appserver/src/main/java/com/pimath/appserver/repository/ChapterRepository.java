@@ -12,5 +12,5 @@ import java.util.List;
 @Repository
 public interface ChapterRepository extends JpaRepository<Chapter,ChapterPK> {
     @Query(value = "select * from chapters as c where c.topic_id = :topic_id", nativeQuery = true)
-    List<Service> getChapters(@Param("topic_id") Long topicID);
+    List<Service> getChapters(@Param("topic_id") Integer topicID);
 }

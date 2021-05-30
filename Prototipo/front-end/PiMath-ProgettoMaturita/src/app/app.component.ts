@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {AuthService} from './service/AuthService';
+import {RouterService} from './service/RouterService';
 import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,7 @@ import {Router} from '@angular/router';
 export class AppComponent {
   title = 'PiMath-ProgettoMaturita';
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private location: Location) {
   }
 
   logout(): any{
@@ -20,5 +22,13 @@ export class AppComponent {
 
   getLoggedIn(): boolean{
     return AuthService.loggedIn;
+  }
+
+  goBackAvailable(): boolean{
+    return RouterService.goBack;
+  }
+
+  goBack(): any{
+    this.location.back();
   }
 }

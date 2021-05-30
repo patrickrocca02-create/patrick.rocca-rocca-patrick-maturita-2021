@@ -43,9 +43,15 @@ export class DBService{
     return this.http.get(DBService.URL + 'api/topics/chapter-text/' + topicID + '/' + chapterID, options);
   }
 
+  getUserName(username): Observable<any>{
+    const options = AuthService.getOptions();
+    options.responseType = 'text';
+    return this.http.get(DBService.URL + 'api/users/first-name/' + username, options);
+  }
+
   register(user: any): Observable<any>{
     const data = {
-      userName: user.username,
+      username: user.username,
       password: user.password,
       email: user.email,
       name: user.name,
@@ -55,7 +61,7 @@ export class DBService{
       }
     };
     console.log(data);
-    AuthService.user.username = data.userName;
+    AuthService.user.username = data.username;
     AuthService.user.password = data.password;
     const headers = new HttpHeaders({'Content-type': 'application/json'});
     return this.http.post(DBService.URL + 'api/users/register', JSON.stringify(data), {headers});

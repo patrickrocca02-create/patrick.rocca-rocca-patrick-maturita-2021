@@ -15,16 +15,17 @@ import java.util.Set;
 public class Plan {
 
     @Id
-    @Column(name="plan_id")
-    Long planID;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="plan_id",columnDefinition="SMALLINT")
+    Integer planID;
 
-    @Column(name="name",length = 10)
+    @Column(name="name",length = 15, nullable = false)
     String planName;
 
-    @Column(name="description", length = 100)
+    @Column(name="description", length = 100, nullable = false)
     String description;
 
-    @Column(name="price_per_month", columnDefinition="Decimal(4,2)")
+    @Column(name="price_per_month", columnDefinition="DECIMAL(5,2)", nullable = false)
     float pricePerMonth;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -38,8 +39,8 @@ public class Plan {
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "available_topics",
-            joinColumns = @JoinColumn(name = "plan_id", referencedColumnName = "plan_id"),
-            inverseJoinColumns = @JoinColumn(name = "topic_id", referencedColumnName = "topic_id")
+            joinColumns = @JoinColumn(name = "plan_id", referencedColumnName = "plan_id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "topic_id", referencedColumnName = "topic_id", nullable = false)
     )
     Set<Topic> availableTopics;
 

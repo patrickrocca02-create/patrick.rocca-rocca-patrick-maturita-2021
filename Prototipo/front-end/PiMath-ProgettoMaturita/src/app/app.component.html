@@ -1,5 +1,8 @@
 <mat-toolbar color="primary" style="height: 75px">
   <mat-toolbar-row>
+    <div style="width: 20px;  margin-top: 19px">
+      <span *ngIf="goBackAvailable()" (click)="goBack()" class="material-icons" style="cursor:pointer;">arrow_back</span>
+    </div>
     <h1 style="cursor: pointer" routerLink="/home" id="title">πMath</h1>
     <button mat-icon-button style="margin-left: 7%" *ngIf="getLoggedIn()">
       <mat-icon (click)="logout()">exit_to_app</mat-icon>

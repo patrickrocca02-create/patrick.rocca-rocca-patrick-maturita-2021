@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DBService} from '../service/DBService';
 import {AuthService} from '../service/AuthService';
 import {Router} from '@angular/router';
+import {RouterService} from '../service/RouterService';
 
 @Component({
   selector: 'app-topics',
@@ -15,6 +16,7 @@ export class TopicsComponent implements OnInit {
   topics = [];
 
   ngOnInit(): void {
+    RouterService.goBack = true;
     if (AuthService.loggedIn) {
       this.loadTopics();
     }else {

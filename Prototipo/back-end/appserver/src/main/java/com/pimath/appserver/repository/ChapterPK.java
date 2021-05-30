@@ -9,12 +9,12 @@ import java.io.Serializable;
 @Data
 public class ChapterPK implements Serializable {
 
-    public Long chapterID;
+    public Integer chapterID;
     public Topic topic;
 
     public ChapterPK(){}
 
-    public ChapterPK(Long chapterID, Topic topic) {
+    public ChapterPK(Integer chapterID, Topic topic) {
         this.chapterID = chapterID;
         this.topic = topic;
     }

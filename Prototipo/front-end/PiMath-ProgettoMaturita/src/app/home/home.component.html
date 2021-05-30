@@ -1,3 +1,4 @@
+<h1 id="welcome"> Bentornato <b>{{ firstName }}</b></h1>
 <mat-grid-list cols="2" rowHeight="350px" style="margin-top: 30px">
   <mat-grid-tile *ngIf="isServiceActive('Equazioni')">
     <button [routerLink]="'/equations'" class="math-section-btn math-section-btn-left" mat-raised-button color="primary">
@@ -15,7 +16,7 @@
   </mat-grid-tile>
   <mat-grid-tile *ngIf="isServiceActive('Derivate')">
     <button [routerLink]="'/derivatives'" class="math-section-btn math-section-btn-left" mat-raised-button color="primary">
-      <div style="font-size: 130px;">$\frac{{"{"}}d}{{"{"}}d x} f{{"{"}}\left(x \right)}$</div>
+      <div style="font-size: 130px;">$\frac{{"{"}}d}{{"{"}}dx} f{{"{"}}\left(x \right)}$</div>
       <div style="margin-top: 22px" class="section-text"><strong>Derivate</strong></div>
       <div>{{ getServiceDescription('Derivate') }}</div>
     </button>
@@ -29,6 +30,10 @@
   </mat-grid-tile>
 </mat-grid-list>
 
-<button id="theory-btn" [routerLink]="'/topics'" class="math-section-btn math-section-btn-right" mat-raised-button color="primary">
-  <div style="font-size: xxx-large">Teoria</div>
-</button>
+<mat-grid-list cols="1" rowHeight="150px">
+  <mat-grid-tile>
+    <button id="theory-btn" [routerLink]="'/topics'" class="math-section-btn math-section-btn-right" mat-raised-button color="primary">
+      <div><b style="font-size: xx-large">Sezione di teoria</b></div>
+    </button>
+  </mat-grid-tile>
+</mat-grid-list>

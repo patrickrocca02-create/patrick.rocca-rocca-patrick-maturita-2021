@@ -25,11 +25,25 @@
   font-size: 35px;
 }
 
+#welcome{
+  text-align: center;
+  margin-top: 27px;
+  font-size: 37px;
+}
+
 #theory-btn{
   margin-left: 8%;
   margin-right: 8%;
-  margin-top: 20px;
-  width: 84%
+  margin-top: 71px;
+  margin-bottom: 80px;
+  width: 84%;
+  height: 125px;
+  transition: height 300ms, width 300ms;
+}
+
+#theory-btn:hover{
+  width: 82%;
+  height: 115px;
 }
 
 

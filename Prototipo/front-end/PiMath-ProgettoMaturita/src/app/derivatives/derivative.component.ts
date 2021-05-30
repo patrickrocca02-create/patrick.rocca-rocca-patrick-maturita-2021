@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {LambdaService} from '../service/lambdaService';
+import {LambdaService} from '../service/LambdaService';
 import {AuthService} from '../service/AuthService';
+import {RouterService} from '../service/RouterService';
 
 @Component({
   selector: 'app-derivative',
@@ -18,12 +19,13 @@ export class DerivativeComponent implements OnInit {
 
   loading = false;
 
-  errorMessage = '';
+  errorMessage = 'Error';
   error = false;
 
   constructor(private service: LambdaService, private router: Router) { }
 
   ngOnInit(): void {
+    RouterService.goBack = true;
     if (!AuthService.isServiceActive('Derivate')){
       this.router.navigate(['/login']);
     }

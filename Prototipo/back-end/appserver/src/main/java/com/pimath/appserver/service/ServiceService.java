@@ -14,7 +14,7 @@ public class ServiceService {
     @Autowired
     ServiceRepository serviceRepository;
 
-    public List<com.pimath.appserver.domain.Service> getAvailable(Long planID){
+    public List<com.pimath.appserver.domain.Service> getAvailable(Integer planID){
         return serviceRepository.getAvailableServices(planID);
     }
 }

@@ -1,25 +1,15 @@
 package com.pimath.appserver.controller;
 
-import com.pimath.appserver.domain.Service;
 import com.pimath.appserver.service.UserService;
 import com.pimath.appserver.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.Authenticator;
-import java.security.Principal;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 
 @RestController
 @RequestMapping("/api/users")
@@ -32,6 +22,11 @@ public class UserController {
     public ResponseEntity<?> getAll(){
         System.out.println(SecurityContextHolder.getContext().getAuthentication().getAuthorities().toArray()[0]);
         return new ResponseEntity<List<User>>(userService.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/first-name/{username}")
+    public ResponseEntity<?> getName(@PathVariable String username){
+        return new ResponseEntity<String>(userService.getFirstName(username), HttpStatus.OK);
     }
 
     @PostMapping("/register")

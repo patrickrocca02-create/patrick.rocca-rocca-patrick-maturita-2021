@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {LambdaService} from '../service/lambdaService';
+import {LambdaService} from '../service/LambdaService';
 import {AuthService} from '../service/AuthService';
 import {Router} from '@angular/router';
+import {RouterService} from '../service/RouterService';
 
 @Component({
   selector: 'app-equations',
@@ -16,7 +17,7 @@ export class EquationsComponent implements OnInit {
 
   loading = false;
 
-  errorMessage = '';
+  errorMessage = 'Error';
   error = false;
 
   constructor(private service: LambdaService, private router: Router) {
@@ -26,6 +27,7 @@ export class EquationsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    RouterService.goBack = true;
   }
 
   permormRequest(): void{
@@ -33,6 +35,7 @@ export class EquationsComponent implements OnInit {
     this.error = false;
     const eq = encodeURIComponent(this.eqValue);
     const queryString = 'eq=' + eq + '&un=' + this.unValue + '&latex=True';
+    const conservUn = this.unValue;
     document.querySelector('#output-container').classList.add('hidden');
     // @ts-ignore
     this.service.get(this.resource, queryString).subscribe((response: any) => {
@@ -43,7 +46,7 @@ export class EquationsComponent implements OnInit {
         }else{
           document.querySelector('#input-label').innerHTML = '$' + response.body.input + '$';
         }
-        document.querySelector('#output-label').innerHTML = '$x\\in ' + response.body.solution + '$';
+        document.querySelector('#output-label').innerHTML = '$' + conservUn + '\\in ' + response.body.solution + '$';
         this.service.updateMathExpressions();
       },
       (error: any) => {

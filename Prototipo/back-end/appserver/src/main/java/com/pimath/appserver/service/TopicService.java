@@ -19,15 +19,15 @@ public class TopicService {
     @Autowired
     ChapterRepository chapterRepository;
 
-    public List<Topic> getAvailable(Long planID){
+    public List<Topic> getAvailable(Integer planID){
         return topicRepository.getAvailableTopics(planID);
     }
 
-    public Set<Chapter> getChapters(Long topicID){
+    public Set<Chapter> getChapters(Integer topicID){
         return topicRepository.getOne(topicID).getChapters();
     }
 
-    public String getChapterText(Long topicID, Long chapterID){
+    public String getChapterText(Integer topicID, Integer chapterID){
         return chapterRepository.getOne(new ChapterPK(chapterID, topicRepository.getOne(topicID))).getText();
     }
 }

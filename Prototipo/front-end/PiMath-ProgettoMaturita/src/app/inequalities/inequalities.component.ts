@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {LambdaService} from '../service/lambdaService';
+import {LambdaService} from '../service/LambdaService';
 import {Router} from '@angular/router';
 import {AuthService} from '../service/AuthService';
+import {RouterService} from '../service/RouterService';
 
 @Component({
   selector: 'app-inequalities',
@@ -17,7 +18,7 @@ export class InequalitiesComponent implements OnInit {
 
   loading = false;
 
-  errorMessage = '';
+  errorMessage = 'Error';
   error = false;
 
   constructor(private service: LambdaService, private router: Router) {
@@ -27,6 +28,7 @@ export class InequalitiesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    RouterService.goBack = true;
   }
 
   permormRequest(): void{
@@ -73,7 +75,7 @@ export class InequalitiesComponent implements OnInit {
         this.errorMessage = 'La piattaforma non è in grado di risolvere questa disequazione';
         break;
       case 15:
-        this.errorMessage = 'Errore generico durante la risoluzoine della disequazione, controllare i parametri inseriti';
+        this.errorMessage = 'Errore generico durante la risoluzione della disequazione, controllare i parametri inseriti';
         break;
     }
     this.error = true;

@@ -15,27 +15,28 @@ import java.util.Set;
 @Table(name = "topics")
 public class Topic implements Serializable {
     @Id
-    @Column(name="topic_id")
-    Long id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="topic_id",columnDefinition = "INT")
+    Integer id;
 
     @Column(name="name",length=30,nullable=false)
     String name;
 
-    @Column(name="description",length=100,nullable=false)
+    @Column(name="description",length=300,nullable=false)
     String description;
 
     @JsonIgnore
     @OneToMany(
-            mappedBy = "sub_topic",
+            mappedBy = "topicOfBelonging",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private Set<Topic> sub_topics;
+    private Set<Topic> subTopics;
 
     @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name="sub_topic", referencedColumnName = "topic_id")
-    Topic sub_topic;
+    @ManyToOne(optional = true)
+    @JoinColumn(name="topic_of_belonging_id", referencedColumnName = "topic_id")
+    Topic topicOfBelonging;
 
     @JsonIgnore
     @OneToMany(

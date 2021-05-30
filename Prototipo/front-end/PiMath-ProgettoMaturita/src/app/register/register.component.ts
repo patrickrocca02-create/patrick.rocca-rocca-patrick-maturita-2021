@@ -5,6 +5,7 @@ import {AuthService} from '../service/AuthService';
 import {Router} from '@angular/router';
 import {DBService} from '../service/DBService';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {RouterService} from '../service/RouterService';
 
 @Component({
   selector: 'app-register',
@@ -31,6 +32,7 @@ export class RegisterComponent implements OnInit {
   constructor(private http: HttpClient, private dbService: DBService, private router: Router) { }
 
   ngOnInit(): void {
+    RouterService.goBack = false;
     this.dbService.getPlans().subscribe(
       (result) => {
         this.plans = result;
