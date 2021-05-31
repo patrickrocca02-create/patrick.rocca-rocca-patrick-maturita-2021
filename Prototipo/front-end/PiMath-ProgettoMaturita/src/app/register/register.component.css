@@ -1,9 +1,10 @@
 #register-card{
   margin-top: 60px;
   text-align: center;
-  margin-left: 35%;
+  margin-left: 34%;
   width: 30%;
-  height: 540px;
+  height: 560px;
+  min-width: 400px;
 }
 #register-btn{
   border: #ff9700 solid 1px;

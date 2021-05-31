@@ -1,7 +1,7 @@
 <div id="input-container">
   <mat-form-field id="fun-form">
     <mat-label>Disequazione</mat-label>
-    <input class="inputMat" matInput type="text" [(ngModel)]="ineqValue">
+    <input class="inputMat" matInput type="text" (keypress)="keyPress($event)" [(ngModel)]="ineqValue">
     <button mat-button *ngIf="ineqValue" matSuffix mat-icon-button aria-label="Clear" (click)="ineqValue=''">
       <mat-icon>close</mat-icon>
     </button>
@@ -32,7 +32,7 @@
   <div id="input-label">
 
   </div>
-  <div>Risultato:</div>
+  <div class="resultLabel">Risultato:</div>
   <div id="output-label">
 
   </div>

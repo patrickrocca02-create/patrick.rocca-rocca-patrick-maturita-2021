@@ -51,6 +51,22 @@ export class InequalitiesComponent implements OnInit {
       });
   }
 
+  keyPress(event): any{
+    if (event.key == '>'){
+      this.symValue = '>';
+    } else if (event.key == '<'){
+      this.symValue = '<';
+    } else if (event.key == '=') {
+      const text = event.target.value;
+      const char = text[text.length - 1];
+      if (char == '>') {
+        this.symValue = '>=';
+      } else if (char == '<') {
+        this.symValue = '<=';
+      }
+    }
+  }
+
   handleError(problemID: number): void{
     switch (problemID){
       case 1:
